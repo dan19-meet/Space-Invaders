@@ -202,6 +202,3 @@ drawBorder()
 moveEnemy()
 moveBullet()
 ##moveBullet()
-
-turtle.update()
-turtle.mainloop()
