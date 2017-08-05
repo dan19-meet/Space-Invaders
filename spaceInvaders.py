@@ -16,6 +16,9 @@ SCREEN_Y = 700
 BORDER_X = 300
 BORDER_Y = 300
 
+BARRIER_WIDTH = 80
+BARRIER_HEIGHT = 54
+
 PLAYER_WIDTH = 40
 PLAYER_HEIGHT = 20
 PLAYER_SPEED = 10
@@ -164,8 +167,23 @@ def playerBullet():
     IS_BULLET_ACTIVE = True
     
 def moveBullet():
+    global IS_BULLET_ACTIVE
     if IS_BULLET_ACTIVE == True:
         bullet.sety(bullet.pos()[1] + BULLET_SPEED)
+
+    if bullet.pos() in enemy_pos_list:
+        IS_BULLET_ACTIVE = False
+        bullet.hideturtle()
+
+    if bullet.pos()[1] >= BORDER_Y:
+        IS_BULLET_ACTIVE = False
+        bullet.hideturtle()
+
+    ## TODO: bullet-barrier collision detection
+##    for i in range(len(barrier_pos_list)):
+##        if barrier.pos()[0] < barrier_pos_list[i][0] and  barrier.pos()[0] > barrier_pos_list[i][0] - BARRER_WIDTH / 2  and barrier.pos()[1] >= barrier_pos_list[i][1]:
+##             IS_BULLET_ACTIVE = False
+##             bullet.hideturtle()   
 
     turtle.ontimer(moveBullet, 100)
     
