@@ -2,6 +2,11 @@
 import turtle
 import os
 
+## TODO:
+##
+##1. Check collisons for the bullet
+##2. Make the enemies into clones of turtle instead of stamps so they can move
+
 ## Take this down if you want to see something cool
 turtle.tracer(1, 0)
 
